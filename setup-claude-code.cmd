@@ -14,6 +14,15 @@ echo   No admin, no Node.js, no winget required!
 echo ============================================
 echo.
 
+:: Handle UNC paths - copy to temp and run from there
+if "%~d0"=="\\" (
+    echo Detected network path. Copying to local temp directory...
+    set "_LOCAL_SCRIPT=%TEMP%\setup-claude-code.cmd"
+    copy "%~f0" "!_LOCAL_SCRIPT!" >nul 2>&1
+    "!_LOCAL_SCRIPT!"
+    exit /b %ERRORLEVEL%
+)
+
 set "_TMP_OUT=%TEMP%\_claude_install_dir.txt"
 if exist "%_TMP_OUT%" del "%_TMP_OUT%" >nul 2>&1
 
@@ -105,7 +114,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command ^
   "Write-Host '==> Adding Claude Code to PATH...' -ForegroundColor Cyan;" ^
   "$userPath = [Environment]::GetEnvironmentVariable('Path', 'User');" ^
   "if ($userPath -notlike ('*' + $claudeDir + '*')) {" ^
-  "  [Environment]::SetEnvironmentVariable('Path', ($userPath + ';' + $claudeDir), 'User');" ^
+  "  $newPath = $userPath + ';' + $claudeDir;" ^
+  "  [Environment]::SetEnvironmentVariable('Path', $newPath, 'User');" ^
   "  Write-Host '==> PATH updated for future sessions' -ForegroundColor Green;" ^
   "}" ^
   "" ^
