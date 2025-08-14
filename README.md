@@ -2,6 +2,12 @@
 
 One-click setup for Claude Code on Windows. No technical knowledge required.
 
+## 📺 Video Tutorial
+
+[![Claude Code Windows Installation Tutorial](https://img.youtube.com/vi/9wzDqiK0A7k/maxresdefault.jpg)](https://youtu.be/9wzDqiK0A7k)
+
+*Click the image above to watch the installation tutorial*
+
 ## Download & Run
 
 1. **[Click here to download](https://github.com/lbacaj/windows-claude-installer/releases/download/v1.0.0/setup-claude-code.cmd)**
