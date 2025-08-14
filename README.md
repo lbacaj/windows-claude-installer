@@ -4,8 +4,8 @@ One-click setup for Claude Code on Windows. No technical knowledge required.
 
 ## Download & Run
 
-1. Download [`setup-claude-code.cmd`](../../releases/latest) 
-2. Double-click to run
+1. **[Click here to download](https://github.com/lbacaj/windows-claude-installer/releases/download/v1.0.0/setup-claude-code.cmd)**
+2. Double-click the downloaded file
 3. When finished, run: `claude login`
 
 That's it! 🎉
